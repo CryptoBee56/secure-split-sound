@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Concert Stage Music Platform Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Concert Stage Theme - Dark base with neon accents */
+    --background: 222 47% 3%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Electric Purple Primary */
+    --primary: 271 100% 65%;
+    --primary-foreground: 222 47% 3%;
+
+    /* Neon Blue Secondary */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 222 47% 3%;
+
+    /* Muted Stage Lighting */
+    --muted: 222 47% 8%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Gold Accent */
+    --accent: 45 100% 70%;
+    --accent-foreground: 222 47% 3%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 47% 12%;
+    --input: 222 47% 8%;
+    --ring: 271 100% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design Tokens */
+    --neon-glow: 271 100% 65%;
+    --stage-spotlight: 45 100% 70%;
+    --audio-wave: 217 91% 60%;
+    --vinyl-black: 222 47% 2%;
+    
+    /* Gradients */
+    --gradient-stage: linear-gradient(135deg, hsl(222 47% 3%) 0%, hsl(271 100% 10%) 50%, hsl(222 47% 3%) 100%);
+    --gradient-neon: linear-gradient(90deg, hsl(271 100% 65%) 0%, hsl(217 91% 60%) 100%);
+    --gradient-audio: linear-gradient(180deg, hsl(271 100% 65%) 0%, hsl(271 100% 40%) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-neon: 0 0 20px hsl(271 100% 65% / 0.5), 0 0 40px hsl(271 100% 65% / 0.3);
+    --shadow-gold: 0 0 20px hsl(45 100% 70% / 0.4);
+    --shadow-stage: 0 10px 30px hsl(222 47% 2% / 0.8);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Concert theme is dark by default, light mode for accessibility */
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 271 100% 50%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 91% 45%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 271 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-stage);
+  }
+  
+  /* Audio Visualizer Bars */
+  .audio-bar {
+    background: var(--gradient-audio);
+    box-shadow: var(--shadow-neon);
+    animation: audio-pulse 1.5s ease-in-out infinite alternate;
+  }
+  
+  .audio-bar:nth-child(2) { animation-delay: 0.1s; }
+  .audio-bar:nth-child(3) { animation-delay: 0.2s; }
+  .audio-bar:nth-child(4) { animation-delay: 0.3s; }
+  .audio-bar:nth-child(5) { animation-delay: 0.4s; }
+  
+  /* Vinyl Record Animation */
+  .vinyl-record {
+    animation: vinyl-spin 4s linear infinite;
+    box-shadow: var(--shadow-stage);
+  }
+  
+  /* Binary Sparkles */
+  .binary-spark {
+    color: hsl(var(--neon-glow));
+    text-shadow: 0 0 10px hsl(var(--neon-glow) / 0.8);
+    animation: binary-float 2s ease-in-out infinite alternate;
+  }
+  
+  /* Neon Glow Effects */
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+    border: 1px solid hsl(var(--neon-glow) / 0.3);
+  }
+  
+  .stage-light {
+    box-shadow: var(--shadow-gold);
+  }
+}
